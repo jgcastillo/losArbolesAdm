@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="376.0" prefWidth="600.0" styleClass="root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.LoginController">
+   <children>
+      <Label layoutX="110.0" layoutY="14.0" styleClass="title" stylesheets="@../../../../../../Temporal/styles.css" text="Residencias Los Arboles" />
+      <Label layoutX="97.0" layoutY="51.0" styleClass="subTitle" stylesheets="@../../../../../../Temporal/styles.css" text="Sistema de Administración de Locales" />
+      <Label layoutX="269.0" layoutY="91.0" text="Ingreso" />
+      <GridPane layoutX="30.0" layoutY="126.0" prefHeight="90.0" prefWidth="546.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="129.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.0" minWidth="10.0" prefWidth="401.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Usuario:" />
+            <Label text="Clave:" GridPane.rowIndex="1" />
+            <TextField fx:id="usuarioField" GridPane.columnIndex="1" />
+            <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <HBox layoutX="349.0" layoutY="247.0" spacing="20.0">
+         <children>
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#handleLogin" text="Ingresar" />
+            <Button mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
+         </children>
+      </HBox>
+      <Label fx:id="errorMessageLabel" layoutX="35.0" layoutY="325.0" prefHeight="20.0" prefWidth="530.0" styleClass="errorMessage" stylesheets="@styles.css" textFill="RED" />
+   </children>
+</AnchorPane>
