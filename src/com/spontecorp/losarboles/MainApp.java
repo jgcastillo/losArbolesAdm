@@ -74,6 +74,10 @@ public class MainApp extends Application {
         launch(args);
     }
     
+    public Usuario getLoggedUser(){
+        return this.loggedUser;
+    }
+    
     private void gotoLogin(){
         try {
             LoginController login = (LoginController) replaceSceneContent("view/Login.fxml");
@@ -109,7 +113,7 @@ public class MainApp extends Application {
             // Give the controller access to the main app.
             RootLayoutController controller = loader.getController();
             controller.setApplication(this);
-
+            
             primaryStage.show();
         } catch (IOException e) {
             logger.error("Error cargando la ventana principal", e);
@@ -129,17 +133,21 @@ public class MainApp extends Application {
     }
     
     public void showUsuariosAdmin() {
+        InputStream in = null;
         try {
             FXMLLoader loader = new FXMLLoader();
+            in = MainApp.class.getResourceAsStream(USUARIOS_ADMIN_FILE);
+            loader.setBuilderFactory(new JavaFXBuilderFactory());
             loader.setLocation(MainApp.class.getResource(USUARIOS_ADMIN_FILE));
-            AnchorPane base = (AnchorPane) loader.load();
-
+            AnchorPane base = (AnchorPane) loader.load(in);
+            in.close();
             rootLayout.setCenter(base);
             UsuariosAdminController controller = loader.getController();
             controller.setMainApp(this);
         } catch (IOException e) {
             logger.error("Error cargando la vista " + USUARIOS_ADMIN_FILE, e);
-        }
+        } 
+        
     }
     
     private Initializable replaceSceneContent(String fxml) throws Exception {

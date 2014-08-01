@@ -29,6 +29,10 @@ public class Utilidades {
     public static final int ACTIVO = 1;
     public static final int INACTIVO = 0;
     
+    public static final String ADMINISTRADOR = "administrador";
+    public static final String EDITOR = "editor";
+    public static final String REVISOR = "revisor";
+    
     public static EntityManagerFactory getEmf() {
         return Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     }

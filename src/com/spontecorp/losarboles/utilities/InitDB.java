@@ -43,15 +43,15 @@ public class InitDB {
             Perfil perfil = new Perfil();
             Usuario usuario = new Usuario();
 
-            perfil.setNombre("revisor");
+            perfil.setNombre(Utilidades.REVISOR);
             perfil.setStatus(Utilidades.ACTIVO);
             perfilFacade.create(perfil);
 
-            perfil.setNombre("editor");
+            perfil.setNombre(Utilidades.EDITOR);
             perfil.setStatus(Utilidades.ACTIVO);
             perfilFacade.create(perfil);
 
-            perfil.setNombre("administrador");
+            perfil.setNombre(Utilidades.ADMINISTRADOR);
             perfil.setStatus(Utilidades.ACTIVO);
             perfilFacade.create(perfil);
 

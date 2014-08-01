@@ -9,7 +9,7 @@
 
 <BorderPane id="BorderPane" prefHeight="600.0" prefWidth="800.0" styleClass="root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.RootLayoutController">
    <top>
-      <MenuBar styleClass="root" stylesheets="@styles.css" BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuBar" styleClass="root" stylesheets="@styles.css" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Archivo">
             <items>
@@ -18,12 +18,12 @@
               <MenuItem mnemonicParsing="false" onAction="#handleSalir" text="Salir" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Configuración">
+          <Menu fx:id="menuConfiguracion" mnemonicParsing="false" text="Configuración">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleMenuUsuarios" text="Usuarios" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>

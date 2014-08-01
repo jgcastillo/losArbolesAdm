@@ -17,12 +17,20 @@
 package com.spontecorp.losarboles.controller;
 
 import com.spontecorp.losarboles.MainApp;
+import com.spontecorp.losarboles.model.Usuario;
+import com.spontecorp.losarboles.utilities.Utilidades;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -32,6 +40,12 @@ import javafx.fxml.Initializable;
 public class RootLayoutController implements Initializable {
 
     private MainApp application;
+    private Usuario loggedUser;
+    
+    @FXML
+    private Menu menuConfiguracion;
+    @FXML
+    private MenuBar menuBar;
     
     /**
      * Initializes the controller class.
@@ -40,11 +54,38 @@ public class RootLayoutController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        menuBar.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                FadeTransition fadeTransition
+                        = new FadeTransition(Duration.millis(500), menuBar);
+                fadeTransition.setFromValue(0.0);
+                fadeTransition.setToValue(1.0);
+                fadeTransition.play();
 
+            }
+        });
+        menuBar.setOnMouseExited((MouseEvent mouseEvent) -> {
+            FadeTransition fadeTransition
+                    = new FadeTransition(Duration.millis(500), menuBar);
+            fadeTransition.setFromValue(1.0);
+            fadeTransition.setToValue(0.0);
+            fadeTransition.play();
+        });
+    }    
+    
     public void setApplication(MainApp application) {
         this.application = application;
+        loggedUser = application.getLoggedUser();
+        if(!loggedUser.getPerfilId().getNombre().equals(Utilidades.ADMINISTRADOR)){
+            menuConfiguracion.setVisible(false);
+        } else {
+            menuConfiguracion.setVisible(true);
+        }
+    }
+    
+    public void setLoggedUser(Usuario usuario){
+        this.loggedUser = usuario;
     }
     
     @FXML
