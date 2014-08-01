@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Thu Jul 31 22:16:16 VET 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0147-8f75-ec64-0000036480e8 
-on database directory D:\Goyo\Proyectos\LosArbolesAdm\database\localesAdmDb  with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/D:/Goyo/Proyectos/LosArbolesAdm/dist/run508627255/lib/derby.jar
+Fri Aug 01 08:27:14 VET 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0147-91a5-47c2-000000942388 
+on database directory C:\Users\jgcastillo\Proyectos\Git_Repository\losArbolesAdm\database\localesAdmDb  with class loader sun.misc.Launcher$AppClassLoader@1f96302 
+Loaded from file:/C:/Users/jgcastillo/Proyectos/Git_Repository/losArbolesAdm/dist/run2059329127/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0-b132
-user.dir=D:\Goyo\Proyectos\LosArbolesAdm
+user.dir=C:\Users\jgcastillo\Proyectos\Git_Repository\losArbolesAdm
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
