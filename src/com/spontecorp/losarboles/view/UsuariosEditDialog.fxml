@@ -7,10 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="462.0" styleClass="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosEditDialogController">
-    <stylesheets>
-        <URL value="@styles.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="462.0" styleClass="root" stylesheets="@losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosEditDialogController">
    <children>
       <GridPane layoutX="14.0" layoutY="40.0" prefHeight="232.0" prefWidth="434.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="40.0">
         <columnConstraints>

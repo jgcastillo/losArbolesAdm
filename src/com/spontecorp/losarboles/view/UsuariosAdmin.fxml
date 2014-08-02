@@ -8,10 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" styleClass="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosAdminController">
-    <stylesheets>
-        <URL value="@styles.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" styleClass="root" stylesheets="@losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosAdminController">
    <children>
       <TableView fx:id="usuariosTable" layoutX="14.0" layoutY="96.0" prefHeight="440.0" prefWidth="776.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="95.0">
         <columns>
