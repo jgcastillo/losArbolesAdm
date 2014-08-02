@@ -18,6 +18,7 @@
 package com.spontecorp.losarboles;
 
 import com.spontecorp.losarboles.controller.LoginController;
+import com.spontecorp.losarboles.controller.MainController;
 import com.spontecorp.losarboles.controller.RootLayoutController;
 import com.spontecorp.losarboles.controller.UsuariosAdminController;
 import com.spontecorp.losarboles.controller.UsuariosDialogController;
@@ -53,6 +54,7 @@ public class MainApp extends Application {
     private static final String USUARIOS_ADMIN_FILE = "view/UsuariosAdmin.fxml";
     public static final String USUARIOS_EDIT_DIALOG = "view/UsuariosEditDialog.fxml";
     public static final String USUARIOS_NUEVO_DIALOG = "view/UsuariosNuevoDialog.fxml";
+    public static final String LOCALES_ADMIN_FILE = "view/locales/LocalesAdmin.fxml";
     
     private static final Logger logger = LoggerFactory.getLogger(MainApp.class);
     
@@ -148,6 +150,24 @@ public class MainApp extends Application {
             logger.error("Error cargando la vista " + USUARIOS_ADMIN_FILE, e);
         } 
         
+    }
+    
+    public void showNewBase(String fxmlFile, MainController controller){
+        InputStream in = null;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            in = MainApp.class.getResourceAsStream(fxmlFile);
+            loader.setBuilderFactory(new JavaFXBuilderFactory());
+            loader.setLocation(MainApp.class.getResource(fxmlFile));
+            AnchorPane base = (AnchorPane) loader.load(in);
+            in.close();
+            rootLayout.setCenter(base);
+            
+            MainController controlador = loader.getController();
+            controlador.setMainApp(this);
+        } catch (IOException e) {
+            logger.error("Error cargando la vista " + fxmlFile, e);
+        }
     }
     
     private Initializable replaceSceneContent(String fxml) throws Exception {

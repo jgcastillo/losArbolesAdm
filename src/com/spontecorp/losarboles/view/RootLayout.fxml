@@ -20,6 +20,8 @@
           </Menu>
           <Menu fx:id="menuConfiguracion" mnemonicParsing="false" text="Configuración">
             <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleMenuLocales" text="Locales" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
               <MenuItem mnemonicParsing="false" onAction="#handleMenuUsuarios" text="Usuarios" />
             </items>
           </Menu>
