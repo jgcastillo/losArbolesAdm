@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../../../../losArbolesStyles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.spontecorp.losarboles.controller.locales.UsosAdminController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../../../../losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.locales.UsosAdminController">
    <children>
       <Label layoutX="28.0" layoutY="30.0" styleClass="subTitle" text="Administración de Usos de Locales" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="15.0" />
       <TableView fx:id="usosTable" layoutX="28.0" layoutY="59.0" prefHeight="244.0" prefWidth="257.0" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="60.0">
@@ -22,7 +22,7 @@
       <HBox layoutX="133.0" layoutY="313.0" spacing="15.0" AnchorPane.leftAnchor="133.0">
          <children>
             <Button fx:id="nuevoUsoButton" layoutX="214.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleNewUsoButton" text="Nuevo" />
-            <Button layoutX="310.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleEditUsoButton" text="Editar" />
+            <Button fx:id="editarUsoButton" layoutX="310.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleEditUsoButton" text="Editar" />
          </children>
       </HBox>
       <Pane fx:id="newUsoPane" layoutX="300.0" layoutY="60.0" prefHeight="130.0" prefWidth="290.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="60.0">
@@ -31,8 +31,8 @@
             <Label layoutX="33.0" layoutY="49.0" text="Uso:" />
             <HBox layoutX="96.0" layoutY="89.0" spacing="10.0">
                <children>
-                  <Button layoutX="93.0" layoutY="91.0" mnemonicParsing="false" onAction="#hadleAceptarButton" text="Aceptar" />
-                  <Button layoutX="168.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancelar" />
+                  <Button fx:id="aceptarButton" layoutX="93.0" layoutY="91.0" mnemonicParsing="false" onAction="#hadleAceptarButton" text="Aceptar" />
+                  <Button fx:id="cancelarButton" layoutX="168.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancelar" />
                </children>
             </HBox>
          </children>

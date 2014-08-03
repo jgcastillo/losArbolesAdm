@@ -32,6 +32,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import org.controlsfx.dialog.Dialogs;
@@ -52,6 +54,12 @@ public class UsosAdminController extends MainController implements Initializable
     @FXML
     private TextField nombreUsoField;
     @FXML
+    private Button cancelarButton;
+    @FXML
+    private Button aceptarButton;
+    @FXML
+    private Button editarUsoButton;
+    @FXML
     private TableView<UsoFx> usosTable;
     @FXML
     private TableColumn<UsoFx, String> nombreUsoColumn;
@@ -60,6 +68,7 @@ public class UsosAdminController extends MainController implements Initializable
     private final UsoFacade usoFacade = new UsoFacade();
     private boolean isNew = false;
     private Uso usoEdited;
+    private final DropShadow shadow = new DropShadow();
 
     private static final Logger logger = LoggerFactory.getLogger(UsosAdminController.class);
 
@@ -73,6 +82,7 @@ public class UsosAdminController extends MainController implements Initializable
     public void initialize(URL url, ResourceBundle rb) {
         newUsoPane.setOpacity(0.0);
 
+        showShadowOnButtons();
         nombreUsoColumn.setCellValueFactory(new PropertyValueFactory<>("nombreProperty"));
         loadUsosTable();
     }
@@ -148,6 +158,40 @@ public class UsosAdminController extends MainController implements Initializable
         }
         loadUsosTable();
         hideNewUsoPane();
+    }
+    
+    private void showShadowOnButtons(){
+        nuevoUsoButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) ->{
+            nuevoUsoButton.setEffect(shadow);
+        });
+        
+        nuevoUsoButton.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+            nuevoUsoButton.setEffect(null);
+        });
+        
+        editarUsoButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+            editarUsoButton.setEffect(shadow);
+        });
+
+        editarUsoButton.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+            editarUsoButton.setEffect(null);
+        });
+        
+        aceptarButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+            aceptarButton.setEffect(shadow);
+        });
+
+        aceptarButton.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+            aceptarButton.setEffect(null);
+        });
+        
+        cancelarButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+            cancelarButton.setEffect(shadow);
+        });
+
+        cancelarButton.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+            cancelarButton.setEffect(null);
+        });
     }
 
     private void showNewUsoPane() {
