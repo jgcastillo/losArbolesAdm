@@ -156,7 +156,7 @@ public class UsosAdminController extends MainController implements Initializable
         fadeTransition.setToValue(1.0);
         fadeTransition.play();
         nuevoUsoButton.setDisable(true);
-        nombreUsoField.setPromptText("Nombre del Uso de Local");
+        nombreUsoField.setPromptText("Uso de Local");
     }
 
     private void hideNewUsoPane() {

@@ -532,3 +532,5 @@ javax.persistence.NoResultException: getSingleResult() did not retrieve any enti
 2014-08-02 20:15:24,275 [JavaFX Application Thread] INFO   c.s.losarboles.utilities.InitDB [InitDB.java:66] Inicializados datos para el usuario administrdor
 2014-08-02 20:40:50,958 [JavaFX Application Thread] INFO   c.s.losarboles.utilities.InitDB [InitDB.java:42] creando datos iniciales en la base de datos
 2014-08-02 20:40:51,177 [JavaFX Application Thread] INFO   c.s.losarboles.utilities.InitDB [InitDB.java:66] Inicializados datos para el usuario administrdor
+2014-08-02 22:42:16,391 [JavaFX Application Thread] INFO   c.s.losarboles.utilities.InitDB [InitDB.java:42] creando datos iniciales en la base de datos
+2014-08-02 22:42:16,524 [JavaFX Application Thread] INFO   c.s.losarboles.utilities.InitDB [InitDB.java:66] Inicializados datos para el usuario administrdor
