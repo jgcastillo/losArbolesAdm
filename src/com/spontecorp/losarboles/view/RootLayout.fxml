@@ -7,9 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane id="BorderPane" prefHeight="600.0" prefWidth="800.0" styleClass="root" stylesheets="@losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.RootLayoutController">
+<BorderPane id="BorderPane" prefHeight="600.0" prefWidth="800.0" styleClass="root" stylesheets="@../../../../losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.RootLayoutController">
    <top>
-      <MenuBar fx:id="menuBar" styleClass="root" stylesheets="@losArbolesStyles.css" BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuBar" styleClass="root" stylesheets="@../../../../losArbolesStyles.css" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Archivo">
             <items>

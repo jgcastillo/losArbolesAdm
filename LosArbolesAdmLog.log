@@ -528,3 +528,5 @@ javax.persistence.NoResultException: getSingleResult() did not retrieve any enti
 	at com.sun.glass.ui.win.WinApplication.access$300(WinApplication.java:39) [jfxrt.jar:na]
 	at com.sun.glass.ui.win.WinApplication$4$1.run(WinApplication.java:112) [jfxrt.jar:na]
 	at java.lang.Thread.run(Thread.java:744) [na:1.8.0]
+2014-08-02 20:15:24,174 [JavaFX Application Thread] INFO   c.s.losarboles.utilities.InitDB [InitDB.java:42] creando datos iniciales en la base de datos
+2014-08-02 20:15:24,275 [JavaFX Application Thread] INFO   c.s.losarboles.utilities.InitDB [InitDB.java:66] Inicializados datos para el usuario administrdor
