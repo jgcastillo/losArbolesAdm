@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="462.0" styleClass="root" stylesheets="@losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosNuevoDialogController">
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="462.0" styleClass="root" stylesheets="@../../../../losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosNuevoDialogController">
    <children>
       <GridPane layoutX="14.0" layoutY="40.0" prefHeight="253.0" prefWidth="435.0" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="40.0">
         <columnConstraints>
@@ -31,9 +31,9 @@
             <Label text="Repita Clave:" GridPane.rowIndex="4" />
             <Label text="Perfil:" GridPane.rowIndex="5" />
             <Label text="Status:" GridPane.rowIndex="6" />
-            <TextField fx:id="nombreField" styleClass="textFieldDialog" stylesheets="@../../../../../../Temporal/styles.css" GridPane.columnIndex="1" />
-            <TextField fx:id="apellidoField" layoutX="146.0" layoutY="8.0" styleClass="textFieldDialog" stylesheets="@../../../../../../Temporal/styles.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="usuarioField" layoutX="146.0" layoutY="40.0" styleClass="textFieldDialog" stylesheets="@../../../../../../Temporal/styles.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="nombreField" styleClass="textFieldDialog" stylesheets="@../../../../losArbolesStyles.css" GridPane.columnIndex="1" />
+            <TextField fx:id="apellidoField" layoutX="146.0" layoutY="8.0" styleClass="textFieldDialog" stylesheets="@../../../../losArbolesStyles.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="usuarioField" layoutX="146.0" layoutY="40.0" styleClass="textFieldDialog" stylesheets="@../../../../losArbolesStyles.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <PasswordField fx:id="claveField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <PasswordField fx:id="claveRepeatField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <ChoiceBox fx:id="perfilChoiceBox" prefHeight="36.0" prefWidth="301.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -41,7 +41,7 @@
          </children>
       </GridPane>
       <Label layoutX="14.0" layoutY="14.0" text="Agregar un Usuario" />
-      <HBox layoutX="305.0" layoutY="377.0" spacing="15.0" AnchorPane.bottomAnchor="20.0">
+      <HBox layoutX="263.0" layoutY="351.0" spacing="15.0" AnchorPane.bottomAnchor="42.0">
          <children>
             <Button layoutX="274.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleOk" text="Aceptar" />
             <Button layoutX="368.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />

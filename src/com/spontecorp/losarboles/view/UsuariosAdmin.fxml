@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" styleClass="root" stylesheets="@losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosAdminController">
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" styleClass="root" stylesheets="@../../../../losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosAdminController">
    <children>
       <TableView fx:id="usuariosTable" layoutX="14.0" layoutY="96.0" prefHeight="440.0" prefWidth="776.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="95.0">
         <columns>
@@ -21,7 +21,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="532.0" layoutY="40.0" spacing="15.0" styleClass="button_Hbox" stylesheets="@styles.css" AnchorPane.bottomAnchor="478.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0">
+      <HBox layoutX="532.0" layoutY="40.0" spacing="15.0" styleClass="button_Hbox" stylesheets="@../../../../losArbolesStyles.css" AnchorPane.bottomAnchor="478.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0">
          <children>
             <Button layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleAgregarButton" text="Agregar" />
             <Button layoutX="118.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleEditarButton" text="Editar" />

@@ -90,7 +90,7 @@ public abstract class UsuariosDialogController implements Initializable{
     }
     
     /**
-     * Called when the user clicks cancel.
+     * Llamado cuando el usuario hace click en Cancelar.
      */
     @FXML
     protected void handleCancel() {

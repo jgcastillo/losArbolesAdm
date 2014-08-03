@@ -14,35 +14,28 @@
 
  */
 
-package com.spontecorp.losarboles.controller.locales;
+package com.spontecorp.losarboles.model.datafx;
 
-import com.spontecorp.losarboles.controller.MainController;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import javafx.beans.property.SimpleStringProperty;
 
 /**
- * FXML Controller class
  *
  * @author Casper
  */
-public class LocalesAdminController extends MainController implements Initializable {
+public class UsoFx {
+    
+    private final SimpleStringProperty nombreProperty;
 
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    } 
+    public UsoFx(String nombre) {
+        this.nombreProperty = new SimpleStringProperty(nombre);
+    }
 
-    @Override
-    public boolean isInputValid() {
-        return false;
+    public String getNombreProperty() {
+        return nombreProperty.get();
     }
     
-    
+    public void setNombreProperty(String nombre){
+        nombreProperty.set(nombre);
+    }
     
 }

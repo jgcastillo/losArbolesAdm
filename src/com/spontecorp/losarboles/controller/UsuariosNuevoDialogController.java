@@ -16,22 +16,12 @@
 
 package com.spontecorp.losarboles.controller;
 
-import com.spontecorp.losarboles.jpa.PerfilFacade;
 import com.spontecorp.losarboles.model.Perfil;
 import com.spontecorp.losarboles.model.Usuario;
 import com.spontecorp.losarboles.utilities.Security;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import org.controlsfx.dialog.Dialogs;
 
 /**
@@ -51,35 +41,7 @@ public class UsuariosNuevoDialogController extends UsuariosDialogController {
     private PasswordField claveField;
     @FXML
     private PasswordField claveRepeatField;
-//    @FXML
-//    private ChoiceBox perfilChoiceBox;
-//    @FXML
-//    private ChoiceBox statusChoiceBox;
-    
-//    private Stage dialogStage;
-//    private Usuario usuario;
-//    private boolean okClicked = false;
-    
-//    private final ObservableList<Perfil> obsListPerfil = FXCollections.observableArrayList();
-    
-    /**
-     * Initializes the controller class.
-     * @param usuario
-     */
-//    @Override
-//    public void initialize(URL url, ResourceBundle rb) {
-//        loadPerfilChoiceBox();
-//        loadStatusChoiceBox();
-//    }    
-    
-//    /**
-//     * Configura la Stage de este dialogo.
-//     *
-//     * @param dialogStage
-//     */
-//    public void setDialogStage(Stage dialogStage) {
-//        this.dialogStage = dialogStage;
-//    }
+
     
     @Override
     public void setUsuario(Usuario usuario){
@@ -93,28 +55,6 @@ public class UsuariosNuevoDialogController extends UsuariosDialogController {
         perfilChoiceBox.setValue(usuario.getPerfilId());
         statusChoiceBox.setValue(usuario.getStatus());
     }
-    
-    /**
-     * Retorna true si el botón Aceptar fue pulsado, de lo contrario false.
-     *
-     * @return
-     */
-//    public boolean isOkClicked() {
-//        return okClicked;
-//    }
-    
-//    private void loadPerfilChoiceBox(){
-//        PerfilFacade facade = new PerfilFacade();
-//        List<Perfil> listPerfil = facade.findAll();
-//        listPerfil.stream().forEach((perfil) -> {
-//            obsListPerfil.add(perfil);
-//        });
-//        perfilChoiceBox.setItems(obsListPerfil);
-//    }
-//    
-//    private void loadStatusChoiceBox(){
-//        statusChoiceBox.setItems(FXCollections.observableArrayList("Activo", "Inactivo"));
-//    }
     
     /**
      * Llamado cuando el usuario hace click en el botón Aceptar desde nuevo.
@@ -133,32 +73,6 @@ public class UsuariosNuevoDialogController extends UsuariosDialogController {
             dialogStage.close();
         }
     }
-    
-//    /**
-//     * Llamado cuando el usuario hace click en el botón Aceptar desde editar.
-//     */
-//    @FXML
-//    private void handleEditOk() {
-//        if (isInputValid()) {
-//            usuario.setNombre(nombreField.getText());
-//            usuario.setApellido(apellidoField.getText());
-//            usuario.setUsr(usuarioField.getText());
-//            usuario.setPsw(claveField.getText());
-//            usuario.setPerfilId((Perfil) perfilChoiceBox.getValue());
-//            usuario.setStatus(((String) statusChoiceBox.getValue()).equals("Activo") ? 1 : 0);
-//
-//            okClicked = true;
-//            dialogStage.close();
-//        }
-//    }
-
-//    /**
-//     * Called when the user clicks cancel.
-//     */
-//    @FXML
-//    private void handleCancel() {
-//        dialogStage.close();
-//    }
     
     /**
      * Valida que el ingreso en los campos sea correcto.

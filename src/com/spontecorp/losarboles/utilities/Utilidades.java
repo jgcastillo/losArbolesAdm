@@ -24,6 +24,7 @@ import javax.persistence.Persistence;
  * @author Casper
  */
 public class Utilidades {
+    // constantes del sistema
     public static final String PERSISTENCE_UNIT_NAME = "LosArbolesAdmPU";
     
     public static final int ACTIVO = 1;
@@ -32,6 +33,13 @@ public class Utilidades {
     public static final String ADMINISTRADOR = "administrador";
     public static final String EDITOR = "editor";
     public static final String REVISOR = "revisor";
+    
+    // vistas
+    public static final String USUARIOS_ADMIN_FILE = "view/UsuariosAdmin.fxml";
+    public static final String USUARIOS_EDIT_DIALOG = "view/UsuariosEditDialog.fxml";
+    public static final String USUARIOS_NUEVO_DIALOG = "view/UsuariosNuevoDialog.fxml";
+    public static final String LOCALES_ADMIN_FILE = "view/locales/LocalesAdmin.fxml";
+    public static final String USO_LOCALES_ADMIN_FILE = "view/locales/UsosAdmin.fxml";
     
     public static EntityManagerFactory getEmf() {
         return Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);

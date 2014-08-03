@@ -20,11 +20,11 @@ package com.spontecorp.losarboles;
 import com.spontecorp.losarboles.controller.LoginController;
 import com.spontecorp.losarboles.controller.MainController;
 import com.spontecorp.losarboles.controller.RootLayoutController;
-import com.spontecorp.losarboles.controller.UsuariosAdminController;
 import com.spontecorp.losarboles.controller.UsuariosDialogController;
 import com.spontecorp.losarboles.model.Usuario;
 import com.spontecorp.losarboles.utilities.Authenticator;
 import com.spontecorp.losarboles.utilities.InitDB;
+import com.spontecorp.losarboles.utilities.Utilidades;
 import java.io.IOException;
 import java.io.InputStream;
 import javafx.application.Application;
@@ -51,10 +51,8 @@ public class MainApp extends Application {
     private Usuario loggedUser;
     
     private static final String BASE_VIEW_FILE = "view/BasePane.fxml";
-    private static final String USUARIOS_ADMIN_FILE = "view/UsuariosAdmin.fxml";
-    public static final String USUARIOS_EDIT_DIALOG = "view/UsuariosEditDialog.fxml";
-    public static final String USUARIOS_NUEVO_DIALOG = "view/UsuariosNuevoDialog.fxml";
-    public static final String LOCALES_ADMIN_FILE = "view/locales/LocalesAdmin.fxml";
+    
+    
     
     private static final Logger logger = LoggerFactory.getLogger(MainApp.class);
     
@@ -134,23 +132,23 @@ public class MainApp extends Application {
         }
     }
     
-    public void showUsuariosAdmin() {
-        InputStream in = null;
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            in = MainApp.class.getResourceAsStream(USUARIOS_ADMIN_FILE);
-            loader.setBuilderFactory(new JavaFXBuilderFactory());
-            loader.setLocation(MainApp.class.getResource(USUARIOS_ADMIN_FILE));
-            AnchorPane base = (AnchorPane) loader.load(in);
-            in.close();
-            rootLayout.setCenter(base);
-            UsuariosAdminController controller = loader.getController();
-            controller.setMainApp(this);
-        } catch (IOException e) {
-            logger.error("Error cargando la vista " + USUARIOS_ADMIN_FILE, e);
-        } 
-        
-    }
+//    public void showUsuariosAdmin() {
+//        InputStream in = null;
+//        try {
+//            FXMLLoader loader = new FXMLLoader();
+//            in = MainApp.class.getResourceAsStream(USUARIOS_ADMIN_FILE);
+//            loader.setBuilderFactory(new JavaFXBuilderFactory());
+//            loader.setLocation(MainApp.class.getResource(USUARIOS_ADMIN_FILE));
+//            AnchorPane base = (AnchorPane) loader.load(in);
+//            in.close();
+//            rootLayout.setCenter(base);
+//            UsuariosAdminController controller = loader.getController();
+//            controller.setMainApp(this);
+//        } catch (IOException e) {
+//            logger.error("Error cargando la vista " + USUARIOS_ADMIN_FILE, e);
+//        } 
+//        
+//    }
     
     public void showNewBase(String fxmlFile, MainController controller){
         InputStream in = null;
@@ -205,12 +203,10 @@ public class MainApp extends Application {
             
             //boolean retorno = false;
             UsuariosDialogController controller;
-            if(fxmlFile.equals(USUARIOS_NUEVO_DIALOG)){
+            if(fxmlFile.equals(Utilidades.USUARIOS_NUEVO_DIALOG)){
                 // Coloca el Usuario en el controlador
-                //UsuariosNuevoDialogController controller = loader.getController();
                 controller = loader.getController();
             } else {
-                //UsuariosEditDialogController controller = loader.getController();
                 controller = loader.getController();
             }
             controller.setDialogStage(dialogStage);

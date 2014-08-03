@@ -19,6 +19,9 @@ package com.spontecorp.losarboles.jpa;
 import com.spontecorp.losarboles.model.Uso;
 import com.spontecorp.losarboles.utilities.Utilidades;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -26,6 +29,7 @@ import javax.persistence.EntityManager;
  */
 public class UsoFacade extends AbstractFacade<Uso>{
 
+    private static final Logger logger = LoggerFactory.getLogger(UsoFacade.class);
     public UsoFacade() {
         super(Uso.class);
     }
@@ -35,4 +39,18 @@ public class UsoFacade extends AbstractFacade<Uso>{
         return Utilidades.getEmf().createEntityManager();
     }
     
+    public Uso find(String nombreUso) {
+        EntityManager em = getEntityManager();
+        Uso usuario = null;
+        try {
+            Query query = em.createQuery("SELECT u FROM Uso u WHERE u.nombre = :nombreUso");
+            query.setParameter("nombreUso", nombreUso);
+            usuario = (Uso) query.getSingleResult();
+        } catch (Exception e) {
+            logger.error("Se produjo el siguiente error: ", e);
+        } finally {
+            em.close();
+        }
+        return usuario;
+    }
 }

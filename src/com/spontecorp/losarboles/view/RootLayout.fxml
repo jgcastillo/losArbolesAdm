@@ -20,7 +20,12 @@
           </Menu>
           <Menu fx:id="menuConfiguracion" mnemonicParsing="false" text="Configuración">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleMenuLocales" text="Locales" />
+                  <Menu mnemonicParsing="false" text="Locales">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleMenuLocales" text="Administrar Locales" />
+                      <MenuItem mnemonicParsing="false" onAction="#handleMenuUsoLocales" text="Administrar Usos" />
+                    </items>
+                  </Menu>
                   <SeparatorMenuItem mnemonicParsing="false" />
               <MenuItem mnemonicParsing="false" onAction="#handleMenuUsuarios" text="Usuarios" />
             </items>

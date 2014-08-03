@@ -25,7 +25,7 @@ import javafx.fxml.Initializable;
  *
  * @author Casper
  */
-public class MainController implements Initializable{
+public abstract class MainController implements Initializable{
 
     private MainApp mainApp;
     
@@ -42,5 +42,13 @@ public class MainController implements Initializable{
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
+    
+    /**
+     * Valida que el ingreso en los campos sea correcto.
+     *
+     * @return true si la entrada es válida
+     */
+    
+    public abstract boolean isInputValid();
     
 }

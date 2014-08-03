@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="462.0" styleClass="root" stylesheets="@losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosEditDialogController">
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="462.0" styleClass="root" stylesheets="@../../../../losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.UsuariosEditDialogController">
    <children>
       <GridPane layoutX="14.0" layoutY="40.0" prefHeight="232.0" prefWidth="434.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="40.0">
         <columnConstraints>
@@ -27,9 +27,9 @@
             <Label text="Usuario" GridPane.rowIndex="2" />
             <Label text="Perfil:" GridPane.rowIndex="3" />
             <Label text="Status:" GridPane.rowIndex="4" />
-            <TextField fx:id="nombreField" styleClass="textFieldDialog" stylesheets="@styles.css" GridPane.columnIndex="1" />
-            <TextField fx:id="apellidoField" layoutX="146.0" layoutY="8.0" styleClass="textFieldDialog" stylesheets="@styles.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="usuarioField" layoutX="146.0" layoutY="40.0" styleClass="textFieldDialog" stylesheets="@styles.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="nombreField" styleClass="textFieldDialog" stylesheets="@../../../../losArbolesStyles.css" GridPane.columnIndex="1" />
+            <TextField fx:id="apellidoField" layoutX="146.0" layoutY="8.0" styleClass="textFieldDialog" stylesheets="@../../../../losArbolesStyles.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="usuarioField" layoutX="146.0" layoutY="40.0" styleClass="textFieldDialog" stylesheets="@../../../../losArbolesStyles.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ChoiceBox fx:id="perfilChoiceBox" prefHeight="36.0" prefWidth="301.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ChoiceBox fx:id="statusChoiceBox" prefHeight="16.0" prefWidth="299.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>

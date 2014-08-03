@@ -40,7 +40,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Casper
  */
-public class UsuariosAdminController implements Initializable{
+public class UsuariosAdminController extends MainController implements Initializable{
 
     @FXML
     private TableView<UsuarioFx> usuariosTable;
@@ -105,16 +105,17 @@ public class UsuariosAdminController implements Initializable{
         try {
             UsuarioFacade facade = new UsuarioFacade();
             Usuario tempUsuario = new Usuario();
-            boolean okClicked = mainApp.showUsuariosDialogs(tempUsuario, MainApp.USUARIOS_NUEVO_DIALOG);
+            boolean okClicked = mainApp.showUsuariosDialogs(tempUsuario, Utilidades.USUARIOS_NUEVO_DIALOG);
             if (okClicked) {
                 facade.create(tempUsuario);
                 loadUsuariosTable();
-            }
-            Dialogs.create()
+                Dialogs.create()
                     .title("Agregar un  Usuario")
                     .masthead("Se ha Agregado un Usuario al sistema")
                     .message("Usuario agregado con éxito.")
                     .showInformation();
+            }
+            
         } catch (Exception e) {
             logger.error("Ha ocurrido un error al guardar el usuario", e);
         }
@@ -127,16 +128,16 @@ public class UsuariosAdminController implements Initializable{
             UsuarioFx selectedUsuarioFx = usuariosTable.getSelectionModel().getSelectedItem();
             if(selectedUsuarioFx != null){
                 Usuario selectedUsuario = facade.findUser(selectedUsuarioFx.getUsrProperty());
-                boolean okClicked = mainApp.showUsuariosDialogs(selectedUsuario, MainApp.USUARIOS_EDIT_DIALOG);
+                boolean okClicked = mainApp.showUsuariosDialogs(selectedUsuario, Utilidades.USUARIOS_EDIT_DIALOG);
                 if(okClicked){
                     facade.edit(selectedUsuario);
                     loadUsuariosTable();
+                    Dialogs.create()
+                            .title("Edición de Usuario")
+                            .masthead("Se ha Editado un Usuario del sistema")
+                            .message("Usuario editado con éxito.")
+                            .showInformation();
                 }
-                Dialogs.create()
-                        .title("Edición de Usuario")
-                        .masthead("Se ha Editado un Usuario del sistema")
-                        .message("Usuario editado con éxito.")
-                        .showInformation();
             } else {
                 Dialogs.create()
                         .title("No Hay Selección")
@@ -180,6 +181,12 @@ public class UsuariosAdminController implements Initializable{
         } catch (Exception e) {
             logger.error("Ha ocurrido un error al editar el usuario", e);
         }
+    }
+
+    @Override
+    public boolean isInputValid() {
+        // no hace nada aqui, sino enlas extensiones
+        return true;
     }
     
 }

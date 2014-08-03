@@ -18,6 +18,7 @@ package com.spontecorp.losarboles.controller;
 
 import com.spontecorp.losarboles.MainApp;
 import com.spontecorp.losarboles.controller.locales.LocalesAdminController;
+import com.spontecorp.losarboles.controller.locales.UsosAdminController;
 import com.spontecorp.losarboles.model.Usuario;
 import com.spontecorp.losarboles.utilities.Utilidades;
 import java.net.URL;
@@ -101,11 +102,16 @@ public class RootLayoutController implements Initializable {
     
     @FXML
     private void handleMenuUsuarios(ActionEvent event){
-        application.showUsuariosAdmin();
+        application.showNewBase(Utilidades.USUARIOS_ADMIN_FILE, new UsuariosAdminController());
     }
     
     @FXML
     private void handleMenuLocales(ActionEvent event){
-        application.showNewBase(MainApp.LOCALES_ADMIN_FILE, new LocalesAdminController());
+        application.showNewBase(Utilidades.LOCALES_ADMIN_FILE, new LocalesAdminController());
+    }
+    
+    @FXML
+    private void handleMenuUsoLocales(ActionEvent event){
+        application.showNewBase(Utilidades.USO_LOCALES_ADMIN_FILE, new UsosAdminController());
     }
 }
