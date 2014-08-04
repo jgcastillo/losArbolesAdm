@@ -27,12 +27,19 @@ public class Utilidades {
     // constantes del sistema
     public static final String PERSISTENCE_UNIT_NAME = "LosArbolesAdmPU";
     
+    // status generales
     public static final int ACTIVO = 1;
     public static final int INACTIVO = 0;
     
+    // nombre de perfiles
     public static final String ADMINISTRADOR = "administrador";
     public static final String EDITOR = "editor";
     public static final String REVISOR = "revisor";
+    
+    // status de locales
+    public static final int LIBRE = 0;
+    public static final int OCUPADO = 1;
+    public static final int ALQUILADO = 2;
     
     // vistas
     public static final String USUARIOS_ADMIN_FILE = "view/UsuariosAdmin.fxml";

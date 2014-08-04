@@ -20,6 +20,7 @@
                             <TableColumn prefWidth="229.0" text="Nombre" />
                             <TableColumn prefWidth="375.0" text="Ubicación" />
                               <TableColumn prefWidth="138.0" text="Uso" />
+                              <TableColumn prefWidth="75.0" text="Status" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -31,7 +32,42 @@
           </Tab>
           <Tab text="Acciones">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="24.0" layoutY="26.0" prefHeight="360.0" prefWidth="567.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <GridPane layoutX="32.0" layoutY="25.0" prefHeight="207.0" prefWidth="477.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="120.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.0" minWidth="10.0" prefWidth="352.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Identificación:" />
+                                    <Label text="Ubicación:" GridPane.rowIndex="1" />
+                                    <Label text="Uso:" GridPane.rowIndex="3" />
+                                    <TextField fx:id="nombreField" GridPane.columnIndex="1" />
+                                    <TextArea fx:id="ubicacionField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ChoiceBox fx:id="usoChoiceBox" prefHeight="27.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label text="Status:" GridPane.rowIndex="2" />
+                                    <ChoiceBox fx:id="statusChoiceBox" prefHeight="27.0" prefWidth="241.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                              <Separator layoutX="32.0" layoutY="241.0" prefHeight="14.0" prefWidth="475.0" />
+                              <HBox layoutX="336.0" layoutY="298.0" spacing="20.0">
+                                 <children>
+                                    <Button layoutX="343.0" layoutY="303.0" mnemonicParsing="false" text="Nuevo" />
+                                    <Button layoutX="429.0" layoutY="303.0" mnemonicParsing="false" text="Aceptar" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

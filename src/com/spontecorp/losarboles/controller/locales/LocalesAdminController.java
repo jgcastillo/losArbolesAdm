@@ -17,8 +17,12 @@
 package com.spontecorp.losarboles.controller.locales;
 
 import com.spontecorp.losarboles.controller.MainController;
+import com.spontecorp.losarboles.jpa.LocalFacade;
+import com.spontecorp.losarboles.model.datafx.LocalFx;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 
 /**
@@ -28,6 +32,9 @@ import javafx.fxml.Initializable;
  */
 public class LocalesAdminController extends MainController implements Initializable {
 
+    private final ObservableList<LocalFx> localesData = FXCollections.observableArrayList();
+    private final LocalFacade localFacade = new LocalFacade();
+    
     /**
      * Initializes the controller class.
      * @param url
