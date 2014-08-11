@@ -77,6 +77,8 @@ public class Arrendatario implements Serializable {
     private String tlfTrabajo;
     @Column(name = "email")
     private String email;
+    @Column(name = "status")
+    private int status;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "arrendatarioId")
     private Collection<Contrato> contratoCollection;
 
@@ -87,7 +89,7 @@ public class Arrendatario implements Serializable {
         this.id = id;
     }
 
-    public Arrendatario(Integer id, String nombre, String apellido, int ci, String direccion, String telefono, String celular) {
+    public Arrendatario(Integer id, String nombre, String apellido, int ci, String direccion, String telefono, String celular, int status) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -95,6 +97,7 @@ public class Arrendatario implements Serializable {
         this.direccion = direccion;
         this.telefono = telefono;
         this.celular = celular;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -167,6 +170,14 @@ public class Arrendatario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public Collection<Contrato> getContratoCollection() {

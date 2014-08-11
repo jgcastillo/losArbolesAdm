@@ -34,7 +34,7 @@
             <ChoiceBox fx:id="statusChoiceBox" prefHeight="16.0" prefWidth="299.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <Label layoutX="14.0" layoutY="14.0" text="Editar Usuario" />
+      <Label layoutX="14.0" layoutY="14.0" styleClass="subTitle" text="Editar Usuario" />
       <HBox layoutX="241.0" layoutY="434.0" spacing="15.0">
          <children>
             <Button layoutX="274.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleOk" text="Aceptar" />

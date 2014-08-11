@@ -34,7 +34,7 @@ public class LocalFx {
     public LocalFx (String nombre, String ubicacion, int status, Uso uso){
         this.nombreProperty = new SimpleStringProperty(nombre);
         this.ubicacionProperty = new SimpleStringProperty(ubicacion);
-        this.statusProperty = new SimpleStringProperty(parseStatus(status));
+        this.statusProperty = new SimpleStringProperty(Utilidades.parseStatusLocal(status));
         this.usoProperty = new SimpleStringProperty(uso.getNombre());
     }
     
@@ -59,7 +59,7 @@ public class LocalFx {
     }
 
     public void setStatusProperty(int status) {
-        statusProperty.set(parseStatus(status));
+        statusProperty.set(Utilidades.parseStatusLocal(status));
     }
     
     public String getUsoProperty() {
@@ -70,13 +70,4 @@ public class LocalFx {
         usoProperty.set(uso.getNombre());
     }
     
-    private String parseStatus(int status){
-        String estado ="";
-        switch(status){
-            case Utilidades.LIBRE: estado = "Libre"; break;
-            case Utilidades.OCUPADO: estado = "Ocupado"; break;
-            case Utilidades.ALQUILADO: estado = "Alquilado"; break; 
-        }
-        return estado;
-    }
 }

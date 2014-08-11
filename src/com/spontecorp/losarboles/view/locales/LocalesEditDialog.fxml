@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../../../../losArbolesStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spontecorp.losarboles.controller.locales.LocalesEditDialogController">
+   <children>
+      <GridPane layoutX="42.0" layoutY="89.0" prefHeight="207.0" prefWidth="477.0">
+         <children>
+            <Label text="Identificación:" />
+            <Label text="Ubicación:" GridPane.rowIndex="1" />
+            <Label text="Uso:" GridPane.rowIndex="3" />
+            <TextField fx:id="nombreField" GridPane.columnIndex="1" />
+            <TextArea fx:id="ubicacionField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="usoChoiceBox" prefHeight="27.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Status:" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="statusChoiceBox" prefHeight="27.0" prefWidth="241.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.0" minWidth="10.0" prefWidth="352.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Label layoutX="36.0" layoutY="45.0" styleClass="subTitle" text="Editar un Local" />
+      <HBox layoutX="334.0" layoutY="312.0" spacing="15.0">
+         <children>
+            <Button layoutX="274.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleOk" text="Aceptar" />
+            <Button layoutX="368.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

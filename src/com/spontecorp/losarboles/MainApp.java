@@ -21,6 +21,8 @@ import com.spontecorp.losarboles.controller.LoginController;
 import com.spontecorp.losarboles.controller.MainController;
 import com.spontecorp.losarboles.controller.RootLayoutController;
 import com.spontecorp.losarboles.controller.UsuariosDialogController;
+import com.spontecorp.losarboles.controller.locales.LocalesDialogController;
+import com.spontecorp.losarboles.model.Local;
 import com.spontecorp.losarboles.model.Usuario;
 import com.spontecorp.losarboles.utilities.Authenticator;
 import com.spontecorp.losarboles.utilities.InitDB;
@@ -78,6 +80,10 @@ public class MainApp extends Application {
         return this.loggedUser;
     }
     
+    public Stage getPrimaryStage(){
+        return primaryStage;
+    }
+    
     private void gotoLogin(){
         try {
             LoginController login = (LoginController) replaceSceneContent("view/Login.fxml");
@@ -131,25 +137,7 @@ public class MainApp extends Application {
             logger.error("Error cargando la vista base", e);
         }
     }
-    
-//    public void showUsuariosAdmin() {
-//        InputStream in = null;
-//        try {
-//            FXMLLoader loader = new FXMLLoader();
-//            in = MainApp.class.getResourceAsStream(USUARIOS_ADMIN_FILE);
-//            loader.setBuilderFactory(new JavaFXBuilderFactory());
-//            loader.setLocation(MainApp.class.getResource(USUARIOS_ADMIN_FILE));
-//            AnchorPane base = (AnchorPane) loader.load(in);
-//            in.close();
-//            rootLayout.setCenter(base);
-//            UsuariosAdminController controller = loader.getController();
-//            controller.setMainApp(this);
-//        } catch (IOException e) {
-//            logger.error("Error cargando la vista " + USUARIOS_ADMIN_FILE, e);
-//        } 
-//        
-//    }
-    
+
     public void showNewBase(String fxmlFile, MainController controller){
         InputStream in = null;
         try {
@@ -218,6 +206,39 @@ public class MainApp extends Application {
             
         } catch (IOException e) {
             logger.error("Error mostrando el dialogo de edicion de usuarios", e);
+            return false;
+        }
+    }
+    
+    public boolean showLocalesDialogs(Local local, String fxmlFile) {
+        try {
+            // carga el archivo fxml y crea una nueva stage  para el dialogo popup
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(fxmlFile));
+            AnchorPane dialog = (AnchorPane) loader.load();
+
+            // Crea la Stage del dialogo
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Editar / Crear Local");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            dialogStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/logoAdm.png")));
+            Scene scene = new Scene(dialog);
+            dialogStage.setScene(scene);
+
+            //boolean retorno = false;
+            LocalesDialogController controller;
+            controller = loader.getController();
+            
+            controller.setDialogStage(dialogStage);
+            controller.setLocal(local);
+
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+
+        } catch (IOException e) {
+            logger.error("Error mostrando el dialogo de agregar/editar locales", e);
             return false;
         }
     }

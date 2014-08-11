@@ -27,7 +27,7 @@ import javafx.fxml.Initializable;
  */
 public abstract class MainController implements Initializable{
 
-    private MainApp mainApp;
+    public MainApp mainApp;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {

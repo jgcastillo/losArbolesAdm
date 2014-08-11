@@ -19,6 +19,9 @@ package com.spontecorp.losarboles.jpa;
 import com.spontecorp.losarboles.model.Local;
 import com.spontecorp.losarboles.utilities.Utilidades;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -26,6 +29,8 @@ import javax.persistence.EntityManager;
  */
 public class LocalFacade extends AbstractFacade<Local>{
 
+    private static final Logger logger = LoggerFactory.getLogger(LocalFacade.class);
+    
     public LocalFacade() {
         super(Local.class);
     }
@@ -35,4 +40,20 @@ public class LocalFacade extends AbstractFacade<Local>{
         return Utilidades.getEmf().createEntityManager();
     }
     
+    public Local findLocal(String nombre, String ubicacion) {
+        EntityManager em = getEntityManager();
+        Local local = null;
+        try {
+            Query query = em.createQuery("SELECT l FROM Local l WHERE l.nombre = :local"
+                                        + " AND l.ubicacion = :ubicacion");
+            query.setParameter("local", nombre);
+            query.setParameter("ubicacion", ubicacion);
+            local = (Local) query.getSingleResult();
+        } catch (Exception e) {
+            logger.info("No se encontró el local: " + nombre + " en " + ubicacion);
+        } finally {
+            em.close();
+        }
+        return local;
+    }
 }

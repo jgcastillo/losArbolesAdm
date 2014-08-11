@@ -18,6 +18,13 @@
               <MenuItem mnemonicParsing="false" onAction="#handleSalir" text="Salir" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Locales">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Lista Locales" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMenuArrendatarios" text="Arrendatarios" />
+                  <MenuItem mnemonicParsing="false" text="Contratos" />
+              </items>
+            </Menu>
           <Menu fx:id="menuConfiguracion" mnemonicParsing="false" text="Configuración">
             <items>
                   <Menu mnemonicParsing="false" text="Locales">

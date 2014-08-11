@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
-Sun Aug 03 13:22:44 VET 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0147-9d00-8d25-0000035a5ee0 
+Sun Aug 10 19:35:44 VET 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0147-c262-8cc4-000002ae8cd8 
 on database directory D:\Goyo\Proyectos\LosArbolesAdm\database\localesAdmDb  with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/D:/Goyo/Proyectos/LosArbolesAdm/dist/run537444749/lib/derby.jar
+Loaded from file:/D:/Goyo/Proyectos/LosArbolesAdm/dist/run1785367030/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0-b132
 user.dir=D:\Goyo\Proyectos\LosArbolesAdm

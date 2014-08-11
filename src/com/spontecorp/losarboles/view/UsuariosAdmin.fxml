@@ -28,6 +28,6 @@
             <Button layoutX="216.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleInactivarButton" text="Inactivar" />
          </children>
       </HBox>
-      <Label layoutX="14.0" layoutY="45.0" text="Administración de Usuarios" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
+      <Label layoutX="14.0" layoutY="45.0" styleClass="subTitle" text="Administración de Usuarios" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
    </children>
 </AnchorPane>

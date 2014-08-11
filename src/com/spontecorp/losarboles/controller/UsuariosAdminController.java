@@ -13,10 +13,8 @@
  * AUNQUE SE HAYA ADVERTIDO DE LA POSIBILIDAD DE TALES DA�OS.
 
  */
-
 package com.spontecorp.losarboles.controller;
 
-import com.spontecorp.losarboles.MainApp;
 import com.spontecorp.losarboles.jpa.UsuarioFacade;
 import com.spontecorp.losarboles.model.Usuario;
 import com.spontecorp.losarboles.model.datafx.UsuarioFx;
@@ -40,7 +38,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Casper
  */
-public class UsuariosAdminController extends MainController implements Initializable{
+public class UsuariosAdminController extends MainController implements Initializable {
 
     @FXML
     private TableView<UsuarioFx> usuariosTable;
@@ -52,14 +50,15 @@ public class UsuariosAdminController extends MainController implements Initializ
     private TableColumn<UsuarioFx, String> usuarioColumn;
     @FXML
     private TableColumn<UsuarioFx, String> statusColumn;
-    
+
     private final ObservableList<UsuarioFx> usuariosData = FXCollections.observableArrayList();
     private static final Logger logger = LoggerFactory.getLogger(UsuariosAdminController.class);
     // Reference to the main application.
-    private MainApp mainApp;
-    
+//    private MainApp mainApp;
+
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -71,37 +70,30 @@ public class UsuariosAdminController extends MainController implements Initializ
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("statusProperty"));
         loadUsuariosTable();
     }
-    
-    /**
-     * Es llamada por la aplicacion principal para dar referenciarse a si misma
-     *
-     * @param mainApp
-     */
-    public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;
-    }
-    
-    public ObservableList<UsuarioFx> getUsuariosData(){
+
+    public ObservableList<UsuarioFx> getUsuariosData() {
         return usuariosData;
     }
-    
-    private void loadUsuariosTable(){
+
+    private void loadUsuariosTable() {
         usuariosData.clear();
         UsuarioFacade facade = new UsuarioFacade();
         List<Usuario> listUsuario = facade.findAll();
-        
+
         listUsuario.stream().forEach((usuario) -> {
-            usuariosData.add(new UsuarioFx(usuario.getNombre(),
-                    usuario.getApellido(),
-                    usuario.getUsr(),
-                    usuario.getStatus()== Utilidades.ACTIVO?"Activo":"Inactivo"));
+            if (!usuario.getUsr().equals("admin")) {
+                usuariosData.add(new UsuarioFx(usuario.getNombre(),
+                        usuario.getApellido(),
+                        usuario.getUsr(),
+                        usuario.getStatus() == Utilidades.ACTIVO ? "Activo" : "Inactivo"));
+            }
         });
-        
+
         usuariosTable.setItems(usuariosData);
     }
-    
+
     @FXML
-    private void handleAgregarButton(){
+    private void handleAgregarButton() {
         try {
             UsuarioFacade facade = new UsuarioFacade();
             Usuario tempUsuario = new Usuario();
@@ -110,26 +102,26 @@ public class UsuariosAdminController extends MainController implements Initializ
                 facade.create(tempUsuario);
                 loadUsuariosTable();
                 Dialogs.create()
-                    .title("Agregar un  Usuario")
-                    .masthead("Se ha Agregado un Usuario al sistema")
-                    .message("Usuario agregado con éxito.")
-                    .showInformation();
+                        .title("Agregar un  Usuario")
+                        .masthead("Se ha Agregado un Usuario al sistema")
+                        .message("Usuario agregado con éxito.")
+                        .showInformation();
             }
-            
+
         } catch (Exception e) {
             logger.error("Ha ocurrido un error al guardar el usuario", e);
         }
     }
-    
+
     @FXML
-    private void handleEditarButton(){
+    private void handleEditarButton() {
         try {
             UsuarioFacade facade = new UsuarioFacade();
             UsuarioFx selectedUsuarioFx = usuariosTable.getSelectionModel().getSelectedItem();
-            if(selectedUsuarioFx != null){
+            if (selectedUsuarioFx != null) {
                 Usuario selectedUsuario = facade.findUser(selectedUsuarioFx.getUsrProperty());
                 boolean okClicked = mainApp.showUsuariosDialogs(selectedUsuario, Utilidades.USUARIOS_EDIT_DIALOG);
-                if(okClicked){
+                if (okClicked) {
                     facade.edit(selectedUsuario);
                     loadUsuariosTable();
                     Dialogs.create()
@@ -148,9 +140,9 @@ public class UsuariosAdminController extends MainController implements Initializ
         } catch (Exception e) {
             logger.error("Ha ocurrido un error al editar el usuario", e);
         }
-        
+
     }
-    
+
     /**
      * Llamado cuando el usuario hace click en botón Eliminar
      */
@@ -159,10 +151,10 @@ public class UsuariosAdminController extends MainController implements Initializ
         try {
             UsuarioFacade facade = new UsuarioFacade();
             UsuarioFx selectedUsuarioFx = usuariosTable.getSelectionModel().getSelectedItem();
-            if(selectedUsuarioFx != null){
+            if (selectedUsuarioFx != null) {
                 Usuario selectedUsuario = facade.findUser(selectedUsuarioFx.getUsrProperty());
                 selectedUsuario.setStatus(Utilidades.INACTIVO);
-                
+
                 facade.edit(selectedUsuario);
                 loadUsuariosTable();
                 Dialogs.create()
@@ -188,5 +180,5 @@ public class UsuariosAdminController extends MainController implements Initializ
         // no hace nada aqui, sino enlas extensiones
         return true;
     }
-    
+
 }

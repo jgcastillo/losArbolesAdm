@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="476.0" prefWidth="600.0" styleClass="root" stylesheets="@../../../../../losArbolesStyles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.spontecorp.losarboles.controller.arrendatario.ArrendatariosNuevoDialogController">
+   <children>
+      <Label layoutX="28.0" layoutY="31.0" styleClass="subTitle" text="Agregar un Arrendatario" />
+      <GridPane layoutX="28.0" layoutY="67.0" prefHeight="330.0" prefWidth="544.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="67.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" minWidth="10.0" prefWidth="147.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="396.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Nombre:" />
+            <Label text="Apelllido:" GridPane.rowIndex="1" />
+            <Label text="C.I.:" GridPane.rowIndex="2" />
+            <Label text="Dirección:" GridPane.rowIndex="3" />
+            <Label text="Teléfono:" GridPane.rowIndex="4" />
+            <Label text="Celular:" GridPane.rowIndex="5" />
+            <Label text="Teléfono Oficina:" GridPane.rowIndex="6" />
+            <Label text="Email:" GridPane.rowIndex="7" />
+            <Label text="Status:" GridPane.rowIndex="8" />
+            <TextField fx:id="nombreField" GridPane.columnIndex="1" />
+            <TextField fx:id="apellidoFeld" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="ciField" prefHeight="33.0" prefWidth="195.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextArea fx:id="direccionTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="telefonoField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="celularField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tlfTrabajoField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ChoiceBox fx:id="statusChoiceBox" prefHeight="27.0" prefWidth="199.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+         </children>
+      </GridPane>
+      <HBox layoutX="387.0" layoutY="417.0" spacing="15.0">
+         <children>
+            <Button layoutX="274.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleOk" text="Aceptar" />
+            <Button layoutX="368.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
