@@ -20,6 +20,7 @@ import com.spontecorp.losarboles.controller.MainController;
 import com.spontecorp.losarboles.jpa.ArrendatarioFacade;
 import com.spontecorp.losarboles.model.Arrendatario;
 import com.spontecorp.losarboles.model.datafx.ArrendatarioFx;
+import com.spontecorp.losarboles.utilities.Utilidades;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -30,6 +31,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.controlsfx.dialog.Dialogs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,6 +54,7 @@ public class ArrendatarioAdminController extends MainController implements Initi
     private TableColumn<ArrendatarioFx, String> celularColumn;
     @FXML
     private TableColumn<ArrendatarioFx, String> statusColumn;
+    
     
     private final ObservableList<ArrendatarioFx> arrendatariosData = FXCollections.observableArrayList();
     private final Logger logger = LoggerFactory.getLogger(ArrendatarioAdminController.class);
@@ -102,80 +105,82 @@ public class ArrendatarioAdminController extends MainController implements Initi
     
     @FXML
     private void handleAgregarButton() {
-//        try {
-//            Local tempLocal = new Local();
-//            boolean okClicked = mainApp.showLocalesDialogs(tempLocal, Utilidades.LOCALES_NUEVO_DIALOG);
-//            if (okClicked) {
-//                facade.create(tempLocal);
-//                loadLocalesTable();
-//                Dialogs.create()
-//                        .title("Agregar un  Local")
-//                        .masthead("Se ha Agregado un Local al sistema")
-//                        .message("Local agregado con éxito.")
-//                        .showInformation();
-//            }
-//
-//        } catch (Exception e) {
-//            logger.error("Ha ocurrido un error al guardar el usuario", e);
-//        }
+        try {
+            Arrendatario tempArrendatario = new Arrendatario();
+            boolean okClicked = mainApp.showArrendatariosDialogs(tempArrendatario, 
+                                Utilidades.ARRENDATARIOS_NUEVO_DIALOG,
+                                true);
+            if (okClicked) {
+                facade.create(tempArrendatario);
+                loadArrendatariosTable();
+                Dialogs.create()
+                        .title("Agregar un  Arrendatario")
+                        .masthead("Se ha Agregado un Arrendatario al sistema")
+                        .message("Arrendatario agregado con éxito.")
+                        .showInformation();
+            }
+
+        } catch (Exception e) {
+            logger.error("Ha ocurrido un error al guardar el usuario", e);
+        }
     }
 
     @FXML
     private void handleEditarButton() {
-//        try {
-//            LocalFx selectedLocalFx = localesTable.getSelectionModel().getSelectedItem();
-//            if (selectedLocalFx != null) {
-//                Local selectedLocal = facade.findLocal(selectedLocalFx.getNombreProperty(),
-//                        selectedLocalFx.getUbicacionProperty());
-//                boolean okClicked = mainApp.showLocalesDialogs(selectedLocal, Utilidades.LOCALES_EDIT_DIALOG);
-//                if (okClicked) {
-//                    facade.edit(selectedLocal);
-//                    loadLocalesTable();
-//                    Dialogs.create()
-//                            .title("Edición de Local")
-//                            .masthead("Se ha Editado un Local del sistema")
-//                            .message("Local editado con éxito.")
-//                            .showInformation();
-//
-//                }
-//            } else {
-//                Dialogs.create()
-//                        .title("No Hay Selección")
-//                        .masthead("No se ha seleccionado un Local de la tabla")
-//                        .message("Por favor, seleccione un local de la tabla.")
-//                        .showWarning();
-//            }
-//        } catch (Exception e) {
-//            logger.error("Ha ocurrido un error al editar el local", e);
-//        }
+        try {
+            ArrendatarioFx selectedRenterFx = arrendatariosTable.getSelectionModel().getSelectedItem();
+            if(selectedRenterFx != null){
+                Arrendatario selectedRenter = facade.findArrendatario(selectedRenterFx.getCiProperty());
+                boolean okClicked = mainApp.showArrendatariosDialogs(selectedRenter, 
+                                    Utilidades.ARRENDATARIOS_NUEVO_DIALOG,
+                                    false);
+                if(okClicked){
+                    facade.edit(selectedRenter);
+                    loadArrendatariosTable();
+                    Dialogs.create()
+                            .title("Edición de Arrendatario")
+                            .masthead("Se ha Editado un Arrendatario en el sistema")
+                            .message("Arrendatario editado con éxito.")
+                            .showInformation();
+                }
+            } else {
+                Dialogs.create()
+                        .title("No hay Selección")
+                        .masthead("No se ha seleccionado un Arrendatario de la tabla")
+                        .message("Por favor, seleccione un Arrendatario de la tabla.")
+                        .showInformation();
+            }
+        } catch (Exception e) {
+            logger.error("Ha ocurrido un error al editar el Arrendatario", e);
+        }
+
     }
 
     @FXML
     private void handleInactivarButton() {
-//        try {
-//            LocalFx selectedLocalFx = localesTable.getSelectionModel().getSelectedItem();
-//            if (selectedLocalFx != null) {
-//                Local selectedLocal = facade.findLocal(selectedLocalFx.getNombreProperty(),
-//                        selectedLocalFx.getUbicacionProperty());
-//                selectedLocal.setStatus(Utilidades.INHABILITADO);
-//
-//                facade.edit(selectedLocal);
-//                loadLocalesTable();
-//                Dialogs.create()
-//                        .title("Inactivar Local")
-//                        .masthead("Se ha Inactivado un Local del sistema")
-//                        .message("Local inactivado con éxito.")
-//                        .showInformation();
-//            } else {
-//                // Nothing selected.
-//                Dialogs.create()
-//                        .title("No Hay Selección")
-//                        .masthead("No se ha selecciona do un Local de la tabla")
-//                        .message("Por favor, seleccione una persona de la tabla.")
-//                        .showWarning();
-//            }
-//        } catch (Exception e) {
-//            logger.error("Ha ocurrido un error al editar el local", e);
-//        }
+        try {
+            ArrendatarioFx selectedArrendatarioFx = arrendatariosTable.getSelectionModel().getSelectedItem();
+            if (selectedArrendatarioFx != null) {
+                Arrendatario selectedArrendatario = facade.findArrendatario(selectedArrendatarioFx.getCiProperty());
+                selectedArrendatario.setStatus(Utilidades.INACTIVO);
+
+                facade.edit(selectedArrendatario);
+                loadArrendatariosTable();
+                Dialogs.create()
+                        .title("Inactivar Arrendatario")
+                        .masthead("Se ha Inactivado un Arrendatario del sistema")
+                        .message("Arrendatario inactivado con éxito.")
+                        .showInformation();
+            } else {
+                // Nothing selected.
+                Dialogs.create()
+                        .title("No Hay Selección")
+                        .masthead("No se ha selecciona do un Arrendatario de la tabla")
+                        .message("Por favor, seleccione una persona de la tabla.")
+                        .showWarning();
+            }
+        } catch (Exception e) {
+            logger.error("Ha ocurrido un error al editar el local", e);
+        }
     }
 }

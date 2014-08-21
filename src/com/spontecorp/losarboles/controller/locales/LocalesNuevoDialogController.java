@@ -18,6 +18,7 @@ package com.spontecorp.losarboles.controller.locales;
 
 import com.spontecorp.losarboles.model.Local;
 import com.spontecorp.losarboles.model.Uso;
+import com.spontecorp.losarboles.utilities.EmailValidator;
 import com.spontecorp.losarboles.utilities.Utilidades;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -35,7 +36,6 @@ public class LocalesNuevoDialogController extends LocalesDialogController{
     private TextField nombreField;
     @FXML
     private TextArea ubicacionField;
-    
     
     @Override
     public boolean isInputValid() {

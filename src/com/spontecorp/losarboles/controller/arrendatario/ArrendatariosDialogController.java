@@ -13,7 +13,6 @@
  * AUNQUE SE HAYA ADVERTIDO DE LA POSIBILIDAD DE TALES DA�OS.
 
  */
-
 package com.spontecorp.losarboles.controller.arrendatario;
 
 import com.spontecorp.losarboles.model.Arrendatario;
@@ -24,15 +23,18 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.commons.validator.routines.EmailValidator;
+import org.controlsfx.dialog.Dialogs;
 
 /**
  *
  * @author Casper
  */
-public class ArrendatariosDialogController implements Initializable{
+public class ArrendatariosDialogController implements Initializable {
 
     @FXML
     private TextField nombreField;
@@ -52,19 +54,29 @@ public class ArrendatariosDialogController implements Initializable{
     private TextField emailField;
     @FXML
     private ChoiceBox statusChoiceBox;
-    
+    @FXML
+    private Label titleLabel;
+
     private Stage dialogStage;
     private boolean okClicked = false;
     private Arrendatario arrendatario;
-        
+    //private final EmailValidator emailValidator = new EmailValidator();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadStatusChoiceBox();
     }
-    
-    public void setArrendatario(Arrendatario arrendatario){
-        this.arrendatario = arrendatario;
+
+    public void setArrendatario(Arrendatario arrendatario, boolean nuevo) {
+
+        if(nuevo){
+            titleLabel.setText("Agregar un Arrendatario");
+        } else {
+            titleLabel.setText("Editar un Arrendatario");
+        }
         
+        this.arrendatario = arrendatario;
+
         nombreField.setText(arrendatario.getNombre());
         apellidoField.setText(arrendatario.getApellido());
         ciField.setText(Integer.toString(arrendatario.getCi()));
@@ -75,11 +87,11 @@ public class ArrendatariosDialogController implements Initializable{
         emailField.setText(arrendatario.getEmail());
         statusChoiceBox.setValue(Utilidades.parseStatusArrendatario(arrendatario.getStatus()));
     }
-    
+
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
-    
+
     public boolean isOkClicked() {
         return okClicked;
     }
@@ -87,7 +99,7 @@ public class ArrendatariosDialogController implements Initializable{
     private void loadStatusChoiceBox() {
         statusChoiceBox.setItems(FXCollections.observableArrayList("Inactivo", "Activo", "Vetado"));
     }
-    
+
     /**
      * Llamado cuando el usuario hace click en Cancelar.
      */
@@ -95,7 +107,7 @@ public class ArrendatariosDialogController implements Initializable{
     protected void handleCancel() {
         dialogStage.close();
     }
-    
+
     @FXML
     private void handleOk() {
         if (isInputValid()) {
@@ -113,9 +125,38 @@ public class ArrendatariosDialogController implements Initializable{
             dialogStage.close();
         }
     }
-    
-    public boolean isInputValid(){
-        return false;
+
+    public boolean isInputValid() {
+        String errorMessage = "";
+        if (nombreField.getText() == null || nombreField.getText().length() == 0) {
+            errorMessage += "No puede dejar el campo Nombre en blanco!\n";
+        }
+        if (apellidoField.getText() == null || apellidoField.getText().length() == 0) {
+            errorMessage += "No puede dejar el campo Apellido en blanco!\n";
+        }
+        if (ciField.getText() == null || ciField.getText().length() == 0) {
+            errorMessage += "No puede dejar el campo C.I. en blanco!\n";
+        }
+        if (direccionTextArea.getText() == null || direccionTextArea.getText().length() == 0) {
+            errorMessage += "No puede dejar el campo Dirección en blanco!\n";
+        }
+        if (emailField.getText() != null || emailField.getText().length() != 0) {
+            if (!EmailValidator.getInstance().isValid(emailField.getText())) {
+                errorMessage += "Debe introducir un email válido";
+            }
+        }
+
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            // Show the error message.
+            Dialogs.create()
+                    .title("Campos Inválidos")
+                    .masthead("Por favor, corrija los campos inválidos")
+                    .message(errorMessage)
+                    .showError();
+            return false;
+        }
     }
-    
+
 }

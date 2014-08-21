@@ -19,6 +19,7 @@ package com.spontecorp.losarboles.jpa;
 import com.spontecorp.losarboles.model.Arrendatario;
 import com.spontecorp.losarboles.utilities.Utilidades;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -35,4 +36,9 @@ public class ArrendatarioFacade extends AbstractFacade<Arrendatario>{
         return Utilidades.getEmf().createEntityManager();
     }
     
+    public Arrendatario findArrendatario(int cedula){
+        Query query = getEntityManager().createNamedQuery("Arrendatario.findByCi", Arrendatario.class);
+        query.setParameter("ci", cedula);
+        return (Arrendatario)query.getSingleResult();
+    }
 }

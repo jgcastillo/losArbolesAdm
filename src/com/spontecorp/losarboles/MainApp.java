@@ -21,7 +21,9 @@ import com.spontecorp.losarboles.controller.LoginController;
 import com.spontecorp.losarboles.controller.MainController;
 import com.spontecorp.losarboles.controller.RootLayoutController;
 import com.spontecorp.losarboles.controller.UsuariosDialogController;
+import com.spontecorp.losarboles.controller.arrendatario.ArrendatariosDialogController;
 import com.spontecorp.losarboles.controller.locales.LocalesDialogController;
+import com.spontecorp.losarboles.model.Arrendatario;
 import com.spontecorp.losarboles.model.Local;
 import com.spontecorp.losarboles.model.Usuario;
 import com.spontecorp.losarboles.utilities.Authenticator;
@@ -239,6 +241,43 @@ public class MainApp extends Application {
 
         } catch (IOException e) {
             logger.error("Error mostrando el dialogo de agregar/editar locales", e);
+            return false;
+        }
+    }
+    
+    public boolean showArrendatariosDialogs(Arrendatario arrendatario, String fxmlFile, boolean nuevo) {
+        try {
+            // carga el archivo fxml y crea una nueva stage  para el dialogo popup
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(fxmlFile));
+            AnchorPane dialog = (AnchorPane) loader.load();
+
+            // Crea la Stage del dialogo
+            Stage dialogStage = new Stage();
+            if(nuevo){
+                dialogStage.setTitle("Crear Arrendatario");
+            } else {
+                dialogStage.setTitle("Editar Arrendatario");
+            }
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            dialogStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/logoAdm.png")));
+            Scene scene = new Scene(dialog);
+            dialogStage.setScene(scene);
+
+            //boolean retorno = false;
+            ArrendatariosDialogController controller;
+            controller = loader.getController();
+
+            controller.setDialogStage(dialogStage);
+            controller.setArrendatario(arrendatario, nuevo);
+
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+
+        } catch (IOException e) {
+            logger.error("Error mostrando el dialogo de agregar/editar arrendatarios", e);
             return false;
         }
     }

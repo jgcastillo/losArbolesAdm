@@ -60,7 +60,7 @@ public class Utilidades {
 
     public static final String ARRENDATARIOS_ADMIN_FILE = "view/arrendatarios/ArrendatariosAdmin.fxml";
     public static final String ARRENDATARIOS_EDIT_DIALOG = "view/arrendatarios/ArrendatariosEditDialog.fxml";
-    public static final String ARRENDATARIOS_DIALOG = "view/arrendatarios/ArrendatariosNuevoDialog.fxml";
+    public static final String ARRENDATARIOS_NUEVO_DIALOG = "view/arrendatarios/ArrendatariosNuevoDialog.fxml";
     
     public static EntityManagerFactory getEmf() {
         return Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
