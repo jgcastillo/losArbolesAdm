@@ -75,6 +75,10 @@
     -fx-font-size: 18pt;
 }
 
+.tableView{
+    -fx-font-size: 16pt;
+}
+
 .errorMessage{
     -fx-font-size: 12pt;
     -fx-color: RED;

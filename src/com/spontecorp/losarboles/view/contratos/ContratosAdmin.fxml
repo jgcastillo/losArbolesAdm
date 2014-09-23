@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="contratosTable" prefHeight="550.0" prefWidth="800.0" styleClass="root" stylesheets="@../../../../../losArbolesStyles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.spontecorp.losarboles.controller.contratos.ContratosAdminController">
+   <children>
+      <TableView layoutX="24.0" layoutY="97.0" prefHeight="438.0" prefWidth="768.0" styleClass="tableView" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="92.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Local" />
+          <TableColumn prefWidth="75.0" text="Arrendatario" />
+            <TableColumn prefWidth="75.0" text="Fecha Inicio" />
+            <TableColumn prefWidth="75.0" text="Fecha Fin" />
+            <TableColumn prefWidth="75.0" text="Status" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="16.0" layoutY="43.0" styleClass="subTitle" text="Administración de Contratos" />
+      <HBox layoutX="438.0" layoutY="44.0" prefHeight="26.0" prefWidth="346.0" spacing="15.0" styleClass="button_Hbox" stylesheets="@../../../../../losArbolesStyles.css">
+         <children>
+            <Button fx:id="detalleButton" mnemonicParsing="false" text="Detalle" />
+            <Button layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleAgregarButton" prefHeight="26.0" prefWidth="82.0" text="Agregar" />
+            <Button layoutX="118.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleEditarButton" text="Editar" />
+            <Button layoutX="216.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleInactivarButton" text="Inactivar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

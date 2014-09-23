@@ -55,6 +55,7 @@ public class Utilidades {
     public static final String LOCALES_ADMIN_FILE = "view/locales/LocalesAdmin.fxml";
     public static final String LOCALES_EDIT_DIALOG = "view/locales/LocalesEditDialog.fxml";
     public static final String LOCALES_NUEVO_DIALOG = "view/locales/LocalesNuevoDialog.fxml";
+    public static final String LOCALES_LISTA = "view/locales/ListaLocales.fxml";
     
     public static final String USO_LOCALES_ADMIN_FILE = "view/locales/UsosAdmin.fxml";
 

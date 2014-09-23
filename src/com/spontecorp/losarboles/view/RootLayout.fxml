@@ -20,7 +20,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Locales">
               <items>
-                <MenuItem mnemonicParsing="false" text="Lista Locales" />
+                <MenuItem mnemonicParsing="false" onAction="#handleMenuListaLocales" text="Lista Locales" />
                   <MenuItem mnemonicParsing="false" onAction="#handleMenuArrendatarios" text="Arrendatarios" />
                   <MenuItem mnemonicParsing="false" text="Contratos" />
               </items>

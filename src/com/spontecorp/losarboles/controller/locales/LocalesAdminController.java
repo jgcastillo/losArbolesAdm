@@ -75,7 +75,7 @@ public class LocalesAdminController extends MainController implements Initializa
 
     @Override
     public boolean isInputValid() {
-        // no hace nada aqui, sino enlas extensiones
+        // no hace nada aqui, sino en las extensiones
         return true;
     }
     

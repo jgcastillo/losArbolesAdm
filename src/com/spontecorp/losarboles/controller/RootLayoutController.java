@@ -18,6 +18,7 @@ package com.spontecorp.losarboles.controller;
 
 import com.spontecorp.losarboles.MainApp;
 import com.spontecorp.losarboles.controller.arrendatario.ArrendatarioAdminController;
+import com.spontecorp.losarboles.controller.locales.ListaLocalesController;
 import com.spontecorp.losarboles.controller.locales.LocalesAdminController;
 import com.spontecorp.losarboles.controller.locales.UsosAdminController;
 import com.spontecorp.losarboles.model.Usuario;
@@ -119,5 +120,10 @@ public class RootLayoutController implements Initializable {
     @FXML
     private void handleMenuArrendatarios(ActionEvent event){
         application.showNewBase(Utilidades.ARRENDATARIOS_ADMIN_FILE, new ArrendatarioAdminController());
+    }
+    
+    @FXML
+    private void handleMenuListaLocales(ActionEvent event){
+        application.showNewBase(Utilidades.LOCALES_LISTA, new ListaLocalesController());
     }
 }
